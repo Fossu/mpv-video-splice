@@ -521,9 +521,10 @@ end
 
 local function run_ffmpeg_cut(piece, input_file_path, output_cut_path)
     local cmd = string.format(
-        "%s -ss %s -i \"%s\" -to %s %s %s",
+        "%s -i \"%s\" -ss %s -to %s %s %s",
         config.ffmpeg_cmd,
-        piece.p_start, input_file_path, piece.p_end,
+	input_file_path,
+        piece.p_start, piece.p_end,
         config.ffmpeg_filter,
         output_cut_path
     )
